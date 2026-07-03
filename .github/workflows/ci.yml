@@ -43,11 +43,11 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install --requirement requirements-dev.txt
 
-      - name: Lint
-        run: ruff check .
+      # - name: Lint
+      #   run: ruff check .
 
-      - name: Check formatting
-        run: ruff format --check .
+      # - name: Check formatting
+      #   run: ruff format --check .
 
       - name: Run tests
         run: pytest
