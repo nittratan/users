@@ -1,0 +1,16 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: user-api:local
+    environment:
+      APP_NAME: ${APP_NAME:-User API}
+      APP_VERSION: ${APP_VERSION:-2.0.0}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      PORT: 8000
+    ports:
+      - "${HOST_PORT:-8000}:8000"
+    restart: unless-stopped
+    init: true
+
