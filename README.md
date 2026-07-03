@@ -20,6 +20,7 @@ main.py                  # Backward-compatible entrypoint
 Dockerfile               # Non-root production container
 compose.yaml             # Local container orchestration
 pyproject.toml           # Package and tool configuration
+.github/workflows/ci.yml # GitHub Actions CI pipeline
 ```
 
 ## Run
@@ -104,3 +105,9 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 1
 
 Multiple processes do not share a Python list. Replace the list with PostgreSQL
 before deploying multiple workers or instances.
+
+## Continuous integration
+
+GitHub Actions runs automatically on every push and pull request. It checks
+Python 3.10 and 3.12, runs Ruff and pytest, builds the Docker image, starts a
+container, and smoke-tests `/health`.
