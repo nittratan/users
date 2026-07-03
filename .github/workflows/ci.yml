@@ -2,7 +2,13 @@ name: CI
 
 on:
   push:
+    branches:
+      - main
+      - develop
   pull_request:
+    branches:
+      - main
+      - develop
 
 permissions:
   contents: read
@@ -86,4 +92,3 @@ jobs:
       - name: Remove test container
         if: always()
         run: docker rm --force user-api-ci || true
-
